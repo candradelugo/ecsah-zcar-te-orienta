@@ -34,6 +34,7 @@ const contenidoEstudiantes = [
         descripcion: "Proceso de homologación de asignaturas a través del Sistema SIHO.",
         enlaces: [
             { texto: "📖 Manual SIHO - Rol Estudiante", ruta: "documentos/MANUAL-SHIO-Rol-Estudiante.pdf" }
+            { texto: "📝 Pruebas de suficiencia", ruta: "#" }
         ]
     },
     {
@@ -63,15 +64,7 @@ const contenidoEstudiantes = [
         ]
     },
     {
-        titulo: "📝 Pruebas de suficiencia",
-        descripcion: "Procedimiento para presentar pruebas de suficiencia en idiomas o asignaturas.",
-        enlaces: [
-            { texto: "📋 Instructivo", ruta: "#" },
-            { texto: "📅 Fechas de inscripción", ruta: "#" }
-        ]
-    },
-    {
-        titulo: "🎪 Eventos de fortalecimiento disciplinar",
+        titulo: "🎫 Eventos de fortalecimiento disciplinar",
         descripcion: "Socialización y divulgación de los eventos académicos de la ECSAH en la Zona Caribe. Conferencias, talleres, seminarios y encuentros.",
         enlaces: [
             { texto: "📅 Calendario de eventos", ruta: "#" },
