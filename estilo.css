@@ -12,8 +12,10 @@ body {
 }
 
 header {
-    background: linear-gradient(135deg, #FFC107, #FFB300);  /* Amarillo institucional */
-    color: #1a2c3e;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('banner-ecsah.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    color: white;
     padding: 1.5rem 2rem;
     text-align: center;
 }
@@ -21,11 +23,13 @@ header {
 .logo-titulo h1 {
     font-size: 1.8rem;
     margin-bottom: 0.25rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .logo-titulo p {
     font-size: 1rem;
-    opacity: 0.85;
+    opacity: 0.95;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .buscador {
@@ -39,7 +43,7 @@ header {
     border-radius: 40px;
     border: none;
     font-size: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .tabs {
