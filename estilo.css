@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Inter', 'Segoe UI', sans-serif;
-    background: #FFF9E6;  /* Amarillo muy suave de fondo */
+    background: #FFF9E6;
     color: #1a2c3e;
     line-height: 1.5;
 }
@@ -20,16 +20,32 @@ header {
     text-align: center;
 }
 
+/* Contenedor del logo + título */
+.logo-titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Estilos del logo */
+.logo-ecsah {
+    height: 60px;
+    width: auto;
+    filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.3));
+}
+
 .logo-titulo h1 {
     font-size: 1.8rem;
     margin-bottom: 0.25rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .logo-titulo p {
     font-size: 1rem;
     opacity: 0.95;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 .buscador {
@@ -43,7 +59,7 @@ header {
     border-radius: 40px;
     border: none;
     font-size: 1rem;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .tabs {
@@ -70,7 +86,7 @@ header {
 .tab-btn.active {
     background: #FFC107;
     color: #1a2c3e;
-    box-shadow: 0 4px 10px rgba(255,193,7,0.3);
+    box-shadow: 0 4px 10px rgba(255, 193, 7, 0.3);
 }
 
 .tab-content {
@@ -106,14 +122,14 @@ header {
 .card {
     background: white;
     border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
     overflow: hidden;
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 28px rgba(0,0,0,0.1);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1);
 }
 
 .card-header {
@@ -156,6 +172,7 @@ header {
     transition: 0.2s;
     width: 100%;
     text-align: center;
+    box-sizing: border-box;
 }
 
 .btn-enlace:hover {
@@ -172,17 +189,29 @@ footer {
     font-size: 0.9rem;
 }
 
+/* Responsive para móviles */
 @media (max-width: 700px) {
+    .logo-ecsah {
+        height: 45px;
+    }
+
+    .logo-titulo h1 {
+        font-size: 1.4rem;
+    }
+
     .tabs {
         flex-direction: column;
         align-items: center;
     }
+
     .tab-btn {
         width: 80%;
     }
+
     .tab-content {
         padding: 1rem;
     }
+
     .grid-cards {
         grid-template-columns: 1fr;
     }
