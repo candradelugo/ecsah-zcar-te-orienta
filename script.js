@@ -55,15 +55,6 @@ const contenidoEstudiantes = [
         ]
     },
     {
-        titulo: "📚 Recursos útiles",
-        descripcion: "Calendario académico, correo institucional, tutoriales y biblioteca virtual.",
-        enlaces: [
-            { texto: "📅 Calendario Académico 2026", ruta: "documentos/Calendario-Académico-2026.pdf" },
-            { texto: "📧 Correo UNAD", ruta: "#" },
-            { texto: "🎓 Tutorial de matrícula", ruta: "#" }
-        ]
-    },
-    {
         titulo: "🎫 Eventos de fortalecimiento disciplinar",
         descripcion: "Socialización y divulgación de los eventos académicos de la ECSAH en la Zona Caribe. Conferencias, talleres, seminarios y encuentros.",
         enlaces: [
@@ -81,6 +72,15 @@ const contenidoEstudiantes = [
             { texto: "📅 Próximas transmisiones", ruta: "#" },
             { texto: "🎧 Podcasts disponibles", ruta: "#" },
             { texto: "📝 Participar como invitado", ruta: "#" }
+        ]
+    },
+    {
+        titulo: "📚 Recursos útiles",
+        descripcion: "Calendario académico, correo institucional, tutoriales y biblioteca virtual.",
+        enlaces: [
+            { texto: "📅 Calendario Académico 2026", ruta: "documentos/Calendario-Académico-2026.pdf" },
+            { texto: "📧 Correo UNAD", ruta: "#" },
+            { texto: "🎓 Tutorial de matrícula", ruta: "#" }
         ]
     }
 ];
