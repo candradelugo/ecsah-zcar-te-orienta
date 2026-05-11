@@ -92,8 +92,9 @@ const contenidoDocentes = [
         descripcion: "Lineamientos, formato guía CIPAS para proyectos de investigación e innovación.",
         enlaces: [
             { texto: "📄 Lineamientos CIPAS", ruta: "#" },
-            { texto: "📋 Formato guía editable", ruta: "#" },
-            { texto: "📖 Cipas Territoriales, ruta: "#"},
+            { texto: "📋 Primera Matricula", ruta: "#" },
+            { texto: "📋 Cursos de Alta Complejidad", ruta: "#" },
+            { texto: "📋 Cipas Territoriales, ruta: "#"}
         ]
     },
     {
