@@ -75,26 +75,26 @@ const contenidoEstudiantes = [
         ]
     },
     {
-        titulo: "📚 Recursos útiles",
-        descripcion: "Calendario académico, correo institucional, tutoriales y biblioteca virtual.",
+        titulo: "🌐 Redes Sociales",
+        descripcion: "Síguenos en nuestras redes sociales oficiales y mantente conectado con la ECSAH Zona Caribe.",
         enlaces: [
-            { texto: "📅 Calendario Académico 2026", ruta: "documentos/Calendario-Académico-2026.pdf" },
-            { texto: "📧 Correo UNAD", ruta: "#" },
-            { texto: "🎓 Tutorial de matrícula", ruta: "#" }
+            { texto: "📷 Instagram", ruta: "https://www.instagram.com/unad.zcar?igsh=d2llZGJmaTJlcnk=" },
+            { texto: "📘 Facebook", ruta: "https://www.facebook.com/share/14fm1HT8Paf/" },
+            { texto: "📧 Correo ECSAH ZCAR", ruta: "mailto:ecsah.zcar@unad.edu.co" }
         ]
     }
 ];
 
-// 👩‍🏫 CONTENIDO PARA DOCENTES
+// 👩‍🏫 CONTENIDO PARA DOCENTES (CORREGIDO)
 const contenidoDocentes = [
     {
         titulo: "🔬 CIPAS",
         descripcion: "Lineamientos, formato guía CIPAS para proyectos de investigación e innovación.",
         enlaces: [
             { texto: "📄 Lineamientos CIPAS", ruta: "#" },
-            { texto: "📋 Primera Matricula", ruta: "#" },
+            { texto: "📋 Primera Matrícula", ruta: "#" },
             { texto: "📋 Cursos de Alta Complejidad", ruta: "#" },
-            { texto: "📋 Cipas Territoriales, ruta: "#"}
+            { texto: "📋 CIPAS Territoriales", ruta: "#" }
         ]
     },
     {
@@ -107,14 +107,16 @@ const contenidoDocentes = [
     },
     {
         titulo: "✅ Ruta de admisión Psicología",
-        descripcion: "Configuración, aplicación y reportes de pruebas finales Microtest.",
+        descripcion: "Proceso de admisión para el programa de Psicología: requisitos, fechas y documentación.",
         enlaces: [
-            { texto: "📅 Calendario de pruebas", ruta: "#" }
+            { texto: "📅 Calendario de admisión", ruta: "#" },
+            { texto: "📋 Requisitos", ruta: "#" },
+            { texto: "📝 Formulario de inscripción", ruta: "#" }
         ]
     },
     {
         titulo: "🔍 Investigación",
-        descripcion: "Microtest para investigación, convocatorias internas y semilleros.",
+        descripcion: "Convocatorias internas, semilleros de investigación y recursos para proyectos.",
         enlaces: [
             { texto: "📋 Semilleros de Investigación", ruta: "#" },
             { texto: "📢 Convocatorias vigentes", ruta: "#" }
@@ -142,17 +144,19 @@ function crearTarjeta(item) {
     body.appendChild(desc);
     
     const lista = document.createElement('ul');
-    item.enlaces.forEach(enlace => {
-        const li = document.createElement('li');
-        const link = document.createElement('a');
-        link.href = enlace.ruta;
-        link.className = 'btn-enlace';
-        link.innerText = enlace.texto;
-        link.target = "_blank";
-        li.appendChild(link);
-        lista.appendChild(li);
-    });
-    body.appendChild(lista);
+    if (item.enlaces && item.enlaces.length > 0) {
+        item.enlaces.forEach(enlace => {
+            const li = document.createElement('li');
+            const link = document.createElement('a');
+            link.href = enlace.ruta;
+            link.className = 'btn-enlace';
+            link.innerText = enlace.texto;
+            link.target = "_blank";
+            li.appendChild(link);
+            lista.appendChild(li);
+        });
+        body.appendChild(lista);
+    }
     
     card.appendChild(header);
     card.appendChild(body);
@@ -175,7 +179,7 @@ function filtrarTarjetas(contenido, textoBusqueda) {
     return contenido.filter(item => 
         item.titulo.toLowerCase().includes(lowerQuery) || 
         item.descripcion.toLowerCase().includes(lowerQuery) ||
-        item.enlaces.some(e => e.texto.toLowerCase().includes(lowerQuery))
+        (item.enlaces && item.enlaces.some(e => e.texto.toLowerCase().includes(lowerQuery)))
     );
 }
 
