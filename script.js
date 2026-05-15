@@ -226,3 +226,130 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     currentTab = 'estudiantes';
 });
+// ============================================
+// PROTECCIÓN PARA SECCIÓN DOCENTES
+// ============================================
+
+// Cambia esta contraseña por la que quieras
+const DOCENTE_PASSWORD = "docentesECSAH2026";  // <-- MODIFICA AQUÍ LA CONTRASEÑA
+
+let docenteUnlocked = false;
+
+function checkDocenteAccess() {
+    const docenteContent = document.getElementById('docenteContent');
+    const lockScreen = document.getElementById('docenteLockScreen');
+    
+    if (docenteUnlocked) {
+        docenteContent.style.display = 'block';
+        lockScreen.style.display = 'none';
+        // Renderizar contenido docente solo la primera vez
+        if (document.getElementById('gridDocentes').children.length === 0) {
+            renderizarGrid(allDocentes, 'gridDocentes');
+        }
+    } else {
+        docenteContent.style.display = 'none';
+        lockScreen.style.display = 'flex';
+    }
+}
+
+function unlockDocente() {
+    const passwordInput = document.getElementById('passwordInput');
+    const errorMsg = document.getElementById('errorMsg');
+    
+    if (passwordInput.value === DOCENTE_PASSWORD) {
+        docenteUnlocked = true;
+        errorMsg.textContent = '';
+        passwordInput.value = '';
+        checkDocenteAccess();
+        // Limpiar búsqueda si estaba activa
+        updateSearch();
+    } else {
+        errorMsg.textContent = '❌ Contraseña incorrecta. Acceso denegado.';
+        passwordInput.value = '';
+    }
+}
+
+// Modificar la función initTabs para proteger la pestaña docentes
+const originalInitTabs = initTabs;
+function enhancedInitTabs() {
+    const btns = document.querySelectorAll('.tab-btn');
+    const contents = document.querySelectorAll('.tab-content');
+    
+    btns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const tabId = btn.getAttribute('data-tab');
+            
+            // Si intenta acceder a docentes sin desbloquear
+            if (tabId === 'docentes' && !docenteUnlocked) {
+                btns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                contents.forEach(content => content.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+                checkDocenteAccess();
+                currentTab = tabId;
+                return;
+            }
+            
+            // Si ya está desbloqueado o es estudiantes
+            if (tabId === 'docentes' && docenteUnlocked) {
+                btns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                contents.forEach(content => content.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+                currentTab = tabId;
+                updateSearch();
+            } else if (tabId === 'estudiantes') {
+                btns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+                contents.forEach(content => content.classList.remove('active'));
+                document.getElementById(tabId).classList.add('active');
+                currentTab = tabId;
+                updateSearch();
+            }
+        });
+    });
+}
+
+// Modificar updateSearch para manejar docentes bloqueados
+const originalUpdateSearch = updateSearch;
+function enhancedUpdateSearch() {
+    const searchTerm = document.getElementById('searchInput')?.value || '';
+    if (currentTab === 'estudiantes') {
+        const filtrados = filtrarTarjetas(allEstudiantes, searchTerm);
+        renderizarGrid(filtrados, 'gridEstudiantes');
+    } else if (currentTab === 'docentes' && docenteUnlocked) {
+        const filtrados = filtrarTarjetas(allDocentes, searchTerm);
+        renderizarGrid(filtrados, 'gridDocentes');
+    }
+}
+
+// Reemplazar funciones
+window.updateSearch = enhancedUpdateSearch;
+window.initTabs = enhancedInitTabs;
+
+// Evento para el botón de desbloqueo
+document.addEventListener('DOMContentLoaded', () => {
+    renderizarGrid(allEstudiantes, 'gridEstudiantes');
+    enhancedInitTabs();
+    const searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+        searchInput.addEventListener('input', enhancedUpdateSearch);
+    }
+    currentTab = 'estudiantes';
+    
+    const unlockBtn = document.getElementById('unlockBtn');
+    if (unlockBtn) {
+        unlockBtn.addEventListener('click', unlockDocente);
+    }
+    
+    const passwordInput = document.getElementById('passwordInput');
+    if (passwordInput) {
+        passwordInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                unlockDocente();
+            }
+        });
+    }
+    
+    checkDocenteAccess();
+});
