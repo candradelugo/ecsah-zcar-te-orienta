@@ -216,3 +216,61 @@ footer {
         grid-template-columns: 1fr;
     }
 }
+/* Pantalla de bloqueo para docentes */
+.lock-screen {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 400px;
+}
+
+.lock-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 400px;
+    width: 100%;
+}
+
+.lock-box h2 {
+    color: #5D4037;
+    margin-bottom: 0.5rem;
+}
+
+.lock-box p {
+    color: #666;
+    margin-bottom: 1.5rem;
+}
+
+.lock-box input {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: 30px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
+
+.lock-box button {
+    background: #FFC107;
+    color: #1a2c3e;
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.lock-box button:hover {
+    background: #FFB300;
+}
+
+.error-msg {
+    color: red;
+    margin-top: 1rem;
+    font-size: 0.9rem;
+}
