@@ -5,61 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <title>ECSAH ZCAR Te Orienta | Estudiantes y Docentes</title>
     <link rel="stylesheet" href="estilo.css">
-    <!-- Fuente opcional -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
         <div class="logo-titulo">
-    <img src="logo-ecsah.jpg" alt="Logo ECSAH" class="logo-ecsah">
-    <div>
-        <h1>ECSAH ZCAR Te Orienta</h1>
-        <p>Información académica y administrativa – Zona Caribe</p>
-    </div>
-</div>
+            <img src="logo-ecsah.jpg" alt="Logo ECSAH" class="logo-ecsah">
+            <div>
+                <h1>ECSAH ZCAR Te Orienta</h1>
+                <p>Información académica y administrativa – Zona Caribe</p>
+            </div>
+        </div>
         <div class="buscador">
             <input type="text" id="searchInput" placeholder="🔍 Buscar por palabra clave (matrícula, grado, práctica...)">
         </div>
     </header>
 
-    <!-- Pestañas para estudiantes y docentes -->
-    <div class="tabs">
-        <button class="tab-btn active" data-tab="estudiantes">🎓 Estudiantes</button>
-        <button class="tab-btn" data-tab="docentes">👩‍🏫 Docentes</button>
-    </div>
-
-    <!-- CONTENIDO ESTUDIANTES -->
-    <div id="estudiantes" class="tab-content active">
-        <section class="intro">
-            <h2>📘 Bienvenido, estudiante</h2>
-            <p>Encuentra aquí toda la información para resolver tus dudas sobre matrícula, opciones de grado, prácticas profesionales, cambios de malla y más. Si no encuentras lo que buscas, usa el buscador o contacta a tu líder de programa.</p>
-        </section>
-
-        <div class="grid-cards" id="gridEstudiantes">
-            <!-- Tarjetas dinámicas (se llenan con JS para facilitar búsqueda) -->
-        </div>
-    </div>
-
-        <!-- Pestañas para estudiantes y docentes -->
+    <!-- Pestañas -->
     <div class="tabs">
         <button class="tab-btn active" data-tab="estudiantes">🎓 Estudiantes</button>
         <button class="tab-btn" data-tab="docentes" id="btnDocentes">👩‍🏫 Docentes</button>
     </div>
 
-    <!-- CONTENIDO ESTUDIANTES -->
+    <!-- CONTENIDO ESTUDIANTES (libre) -->
     <div id="estudiantes" class="tab-content active">
         <section class="intro">
             <h2>📘 Bienvenido, estudiante</h2>
             <p>Encuentra aquí toda la información para resolver tus dudas sobre matrícula, opciones de grado, prácticas profesionales, cambios de malla y más. Si no encuentras lo que buscas, usa el buscador o contacta a tu líder de programa.</p>
         </section>
-
-        <div class="grid-cards" id="gridEstudiantes">
-            <!-- Tarjetas dinámicas (se llenan con JS) -->
-        </div>
+        <div class="grid-cards" id="gridEstudiantes"></div>
     </div>
 
     <!-- CONTENIDO DOCENTES (protegido) -->
     <div id="docentes" class="tab-content">
+        <!-- Pantalla de bloqueo -->
         <div id="docenteLockScreen" class="lock-screen">
             <div class="lock-box">
                 <h2>🔒 Acceso restringido</h2>
@@ -69,6 +48,7 @@
                 <p id="errorMsg" class="error-msg"></p>
             </div>
         </div>
+        <!-- Contenido docente (oculto hasta desbloquear) -->
         <div id="docenteContent" style="display: none;">
             <section class="intro">
                 <h2>📚 Bienvenido, docente</h2>
@@ -77,3 +57,12 @@
             <div class="grid-cards" id="gridDocentes"></div>
         </div>
     </div>
+
+    <footer>
+        <p>📧 ¿Dudas no resueltas? Escríbenos a <strong>ecsah.zcar@unad.edu.co</strong></p>
+        <p>ECSAH Zona Caribe – Universidad Nacional Abierta y a Distancia</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
